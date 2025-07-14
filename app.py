@@ -255,6 +255,26 @@ with tab1:
                 st.metric("Processing Time", "N/A (single image)")
                 st.metric("Violations Detected", violation_count)
 
+    elif source_type == 'Upload Video':
+        with stylable_container(
+            key="upload_container",
+            css_styles="""
+                {
+                    border: 1px solid rgba(49, 51, 63, 0.2);
+                    border-radius: 8px;
+                    padding: 20px;
+                    margin-bottom: 20px;
+                }
+            """
+        ):
+            uploaded_file = st.file_uploader("Upload a video file", type=["mp4", "avi", "mov"])
+            if uploaded_file:
+                temp_video_path = os.path.join(tempfile.gettempdir(), uploaded_file.name)
+                with open(temp_video_path, 'wb') as f:
+                    f.write(uploaded_file.read())
+                st.success("✅ Video uploaded successfully. Processing...")
+                display_video(temp_video_path)
+
     elif source_type == 'OpenCV Webcam (Local Only)':
         if os.environ.get('IS_STREAMLIT_CLOUD'):
             st.error("OpenCV webcam only works when running locally!")
