@@ -40,36 +40,27 @@ An advanced computer vision system for real-time safety compliance monitoring in
 - Git
 
 ### Installation
-```bash
+
 # Clone the repository
+```bash
 git clone https://github.com/darshan1654/AI-PPE-Detection.git
 cd AI-PPE-Detection
 ```
-```bash
 # Create virtual environment
+```bash
 python -m venv venv
+source venv/bin/activate   # Linux/MacOS
+ # venv\Scripts\activate   # Windows
 ```
-```bash
-source venv/bin/activate  # Linux/MacOS
-# venv\Scripts\activate  # Windows
-```
-```bash
 # Install dependencies
+```bash
 pip install -r requirements.txt
-Running the Application
-bash
+```
+# Running the Application
+```bash
 streamlit run app.py
 ```
-📂 Project Structure
-text
-AI-PPE-Detection/
-├── app.py                # Main Streamlit application
-├── best.pt               # Pretrained YOLOv8 model
-├── requirements.txt      # Python dependencies
-├── packages.txt          # System dependencies
-├── sample.mp4            # Sample video
-├── home.jpeg             # Logo image
-└── README.md             # Project documentation
+
 🖥️ Usage Guide
 Select Input Source:
 
