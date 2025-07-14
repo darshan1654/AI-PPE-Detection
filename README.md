@@ -1,43 +1,20 @@
-# 🛡️ AI-Powered PPE Detection & Industrial Surveillance System
+# 🛡️ AI-Powered PPE Detection System
 
-![Project Banner](https://via.placeholder.com/1200x400?text=AI+PPE+Detection+and+Industrial+Surveillance)
+![Project Banner](https://via.placeholder.com/1200x400?text=AI+PPE+Detection+System)
 
-An advanced computer vision system for real-time safety compliance monitoring in industrial environments, developed in collaboration with Jyoti CNC Automation.
+Real-time safety compliance monitoring using computer vision and YOLOv8.
 
-## 🌟 Key Features
-
-### 👷 PPE Detection System
-- Real-time detection of safety equipment:
-  - Hard hats 🪖
-  - Safety vests 🦺 
-  - Face masks 😷
-  - Protective gloves 🧤
+## ✨ Features
+- Detect helmets, vests, masks, and gloves
 - Multiple input sources:
-  - 📷 Browser webcam (photo capture)
-  - 🎥 OpenCV webcam (local live video)
-  - 📹 RTSP/IP camera streams
-  - 📂 Video/image file uploads
-
-### 🏭 Industrial Surveillance
-- 24/7 anomaly detection in CCTV feeds
-- Automatic violation logging with timestamps
-- Real-time alerts for safety breaches
-
-## 🛠️ Technologies Used
-
-| Technology | Purpose |
-|------------|---------|
-| ![Python](https://img.shields.io/badge/Python-3.9+-blue) | Core programming language |
-| ![YOLOv8](https://img.shields.io/badge/YOLOv8-8.0+-brightgreen) | Real-time object detection |
-| ![OpenCV](https://img.shields.io/badge/OpenCV-4.7+-orange) | Image/video processing |
-| ![Streamlit](https://img.shields.io/badge/Streamlit-1.25+-red) | Interactive web dashboard |
-| ![Pandas](https://img.shields.io/badge/Pandas-1.3+-yellow) | Data logging & analysis |
+  - 📷 Browser webcam (photos)
+  - 🎥 Local webcam (video)
+  - 📹 RTSP/IP cameras
+  - 📂 File uploads
+- Violation logging with timestamps
+- Interactive Streamlit dashboard
 
 ## 🚀 Quick Start
-
-### Prerequisites
-- Python 3.9+
-- Git
 
 ### Installation
 
@@ -61,54 +38,51 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-🖥️ Usage Guide
-Select Input Source:
+## 🛠️ Tech Stack
 
-Browser Webcam: For single photo analysis
+Python 3.9+
 
-OpenCV Webcam: For live video (local only)
+YOLOv8 (Ultralytics)
 
-RTSP Stream: For IP camera integration
+OpenCV
 
-File Upload: For analyzing stored media
+Streamlit
 
-View Results:
+Pandas
 
-Real-time detection overlay
+## 👥 Team
 
-Processing metrics
-
-Violation alerts
-
-Access Logs:
-
-Timestamped violation records
-
-Statistical analysis
-
-Export functionality
-
-👥 Development Team
 Group ID: G00171
 Institution: SVIT Vasad
-Industry Partner: Intel AI for Manufacturing
+Mentor: Intel AI for Manufacturing
 
-Name	Role	Contact
-Kushal A. Parekh	Team Lead	22ce113@svitvasad.ac.in
-Darshan Pardeshi	CV Engineer	darshanpardeshi1654@gmail.com
-Param V. Jani	Backend Developer	janiparam61@gmail.com
-Darshan Panchal	UI/UX Designer	mpdarshanpanchal001031@gmail.com
-Jaymin Raval	Testing Engineer	ravaljaymin2908@gmail.com
-📜 License
-This project is licensed for academic and research purposes under the MIT License.
+Name	Contact
+Kushal A. Parekh	22ce113@svitvasad.ac.in
+Darshan Pardeshi	darshanpardeshi1654@gmail.com
+Param V. Jani	janiparam61@gmail.com
 
-🤝 Acknowledgements
-We extend our gratitude to:
+## 📜 License
 
-Ultralytics for YOLOv8
+MIT License - For academic/research use
 
-Jyoti CNC Automation for industry guidance
+<div align="center"> <a href="https://github.com/darshan1654/AI-PPE-Detection"> <img src="https://img.shields.io/github/stars/darshan1654/AI-PPE-Detection?style=social"> </a> <a href="https://github.com/darshan1654/AI-PPE-Detection/issues"> <img src="https://img.shields.io/github/issues/darshan1654/AI-PPE-Detection"> </a> </div> ```
 
-SVIT Vasad faculty for technical support
+## Key features:
 
-<div align="center"> <a href="https://github.com/darshan1654/AI-PPE-Detection"> <img src="https://img.shields.io/github/stars/darshan1654/AI-PPE-Detection?style=social" alt="GitHub Stars"> </a> <a href="https://github.com/darshan1654/AI-PPE-Detection/fork"> <img src="https://img.shields.io/github/forks/darshan1654/AI-PPE-Detection?style=social" alt="GitHub Forks"> </a> </div> ```
+Clean markdown formatting
+
+All sections properly spaced
+
+Code blocks with syntax highlighting
+
+Responsive badges
+
+Project structure tree
+
+Concise team table
+
+Proper emoji usage
+
+License information
+
+GitHub stats badges
