@@ -6,6 +6,7 @@ import os
 import time
 import pandas as pd
 from datetime import datetime
+import numpy as np  
 from streamlit_extras.colored_header import colored_header
 from streamlit_extras.metric_cards import style_metric_cards
 from streamlit_extras.stylable_container import stylable_container
@@ -87,9 +88,11 @@ with st.sidebar:
         <span style="font-weight: bold; font-size: 1.1rem;">Configuration</span>
     </div>
     """, unsafe_allow_html=True)
+    
+    # Updated source options with browser webcam
     source_type = st.radio(
         "Select Input Source",
-        ['Webcam', 'Upload Video', 'Upload Image', 'RTSP IP Camera'],
+        ['Browser Webcam (Photo)', 'Upload Video', 'Upload Image', 'RTSP IP Camera', 'OpenCV Webcam (Local Only)'],
         index=0,
         help="Choose the source for surveillance feed"
     )
@@ -228,40 +231,36 @@ def process_image(image_path):
 tab1, tab2 = st.tabs(["Live Monitoring", "Violation Logs"])
 
 with tab1:
-    # Logic for different sources with enhanced UI
-    if source_type == 'Upload Video':
-        with stylable_container(
-            key="upload_container",
-            css_styles="""
-                {
-                    border: 1px solid rgba(49, 51, 63, 0.2);
-                    border-radius: 8px;
-                    padding: 20px;
-                    margin-bottom: 20px;
-                }
-            """
-        ):
-            uploaded_file = st.file_uploader("Upload a video file", type=["mp4", "avi", "mov"])
-            if uploaded_file:
-                temp_video_path = os.path.join(tempfile.gettempdir(), uploaded_file.name)
-                with open(temp_video_path, 'wb') as f:
-                    f.write(uploaded_file.read())
-                st.success("✅ Video uploaded successfully. Processing...")
-                display_video(temp_video_path)
+    # Browser Webcam Option
+    if source_type == 'Browser Webcam (Photo)':
+        st.info("ℹ️ Captures single photos (browser permission required)")
+        
+        captured_image = st.camera_input("Take a photo for PPE detection")
+        
+        if captured_image:
+            # Convert to OpenCV format
+            file_bytes = np.asarray(bytearray(captured_image.read()), dtype=np.uint8)
+            frame = cv2.imdecode(file_bytes, cv2.IMREAD_COLOR)
+            
+            # Process the image
+            annotated_frame, results, violation_count = process_frame(frame)
+            
+            # Display results
+            col1, col2 = st.columns(2)
+            with col1:
+                st.image(cv2.cvtColor(annotated_frame, cv2.COLOR_BGR2RGB),
+                        caption="Processed Image",
+                        use_container_width=True)
+            with col2:
+                st.metric("Processing Time", "N/A (single image)")
+                st.metric("Violations Detected", violation_count)
 
-    elif source_type == 'Webcam':
-        with stylable_container(
-            key="webcam_container",
-            css_styles="""
-                {
-                    border: 1px solid rgba(49, 51, 63, 0.2);
-                    border-radius: 8px;
-                    padding: 20px;
-                    margin-bottom: 20px;
-                }
-            """
-        ):
-            if st.button("🎥 Start Webcam", type="primary"):
+    elif source_type == 'OpenCV Webcam (Local Only)':
+        if os.environ.get('IS_STREAMLIT_CLOUD'):
+            st.error("OpenCV webcam only works when running locally!")
+            st.info("Tip: Use 'Browser Webcam' for photo capture in the cloud")
+        else:
+            if st.button("🎥 Start Webcam"):
                 display_video(0)
 
     elif source_type == 'Upload Image':
