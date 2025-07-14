@@ -44,17 +44,22 @@ An advanced computer vision system for real-time safety compliance monitoring in
 # Clone the repository
 git clone https://github.com/darshan1654/AI-PPE-Detection.git
 cd AI-PPE-Detection
-
+```
+```bash
 # Create virtual environment
 python -m venv venv
+```
+```bash
 source venv/bin/activate  # Linux/MacOS
 # venv\Scripts\activate  # Windows
-
+```
+```bash
 # Install dependencies
 pip install -r requirements.txt
 Running the Application
 bash
 streamlit run app.py
+```
 📂 Project Structure
 text
 AI-PPE-Detection/
