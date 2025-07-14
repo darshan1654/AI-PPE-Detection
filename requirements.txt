@@ -1,9 +1,13 @@
 streamlit
-numpy
-pandas
 opencv-python-headless
 ultralytics
+pandas
+numpy
+Pillow
+streamlit-extras
+protobuf
+torch
+torchvision
 matplotlib
 scikit-learn
-Pillow
 requests
