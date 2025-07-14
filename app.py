@@ -280,6 +280,13 @@ with tab1:
             st.error("OpenCV webcam only works when running locally!")
             st.info("Tip: Use 'Browser Webcam' for photo capture in the cloud")
         else:
+            st.warning("""
+            🌐 Webcam access is disabled in cloud deployments. 
+            Try these instead:
+            - 📁 Upload a video file
+            - 📡 Use RTSP stream
+            - 💻 Run locally for webcam
+            """)
             if st.button("🎥 Start Webcam"):
                 display_video(0)
 
