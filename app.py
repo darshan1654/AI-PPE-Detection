@@ -169,6 +169,7 @@ def display_video(video_source):
     cap = cv2.VideoCapture(video_source)
     st_frame = st.empty()
     stop_button = st.button("🛑 Stop Stream")
+    st.error("OpenCV webcam only works when running locally!")
     fail_count = 0
     
     # Create metrics row
