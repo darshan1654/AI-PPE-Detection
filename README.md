@@ -75,7 +75,7 @@ Using advanced **deep learning models** and **computer vision**, the system ensu
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/paramjani/AI_FINAL.git
+git clone https://github.com/darshan1654/AI-PPE-Detection.git
 
 # 2. Create and activate a virtual environment
 python -m venv venv
