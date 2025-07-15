@@ -78,6 +78,12 @@ st.markdown("""
     }
     </style>
 """, unsafe_allow_html=True)
+# Main header with colored header
+colored_header(
+    label="👷 AI CCTV Surveillance System",
+    description="An AI-powered CCTV surveillance system for real-time detection of PPE compliance, including helmet and mask violations, using YOLO and computer vision.",
+    color_name="blue-70",
+)
 
 # -------- SIDEBAR UI ----------
 with st.sidebar:
