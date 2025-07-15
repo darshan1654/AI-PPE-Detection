@@ -1,5 +1,4 @@
-<img width="700" height="189" alt="image" src="https://github.com/user-attachments/assets/18a5d72c-15d2-450f-be05-cccdc1bafb07" />
-
+<img width="709" height="186" alt="image" src="https://github.com/user-attachments/assets/9afae834-e0bd-4a0f-9b6a-919b491df72d" />
 
 
 # 🛡️📹 AI-Powered Industrial Safety Surveillance System
