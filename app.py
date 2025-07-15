@@ -1,4 +1,5 @@
-import streamlit as st
+You said:
+ import streamlit as st
 import cv2
 import tempfile
 from ultralytics import YOLO
@@ -84,110 +85,67 @@ with st.sidebar:
     st.image("home.jpeg", use_container_width=True)
 
     # Add CSS styling
-# --- Updated CSS ---
-st.markdown("""
-    <style>
-        .main {
-            background-color: #f8f9fa;
-        }
-        .stButton>button {
-            border-radius: 8px;
-            padding: 8px 16px;
-            font-weight: 500;
-        }
-        .stSelectbox, .stTextInput, .stRadio>div {
-            background-color: white;
-            border-radius: 8px;
-            padding: 8px;
-        }
-        .stAlert {
-            border-radius: 8px;
-        }
-        .stDataFrame {
-            border-radius: 8px;
-        }
-        .css-1v3fvcr {
-            padding: 1rem;
-            border-radius: 8px;
-            background-color: white;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        .css-1y4p8pa {
-            padding-top: 2rem;
-            padding-bottom: 2rem;
-        }
-        .violation-card {
-            border-left: 4px solid #ff4b4b;
-            padding: 12px;
-            margin-bottom: 8px;
-            background-color: #fff8f8;
-            border-radius: 4px;
-        }
-
-        /* SIDEBAR CUSTOM STYLING */
-        .sidebar-config-box {
-            background-color: #1e1e1e;  /* Adjust this if you want a lighter background */
-            padding: 16px;
-            border-radius: 8px;
-            margin-top: 16px;
-            color: white;
-        }
-
-        .sidebar-config-box label {
-            color: white !important;
-        }
-
-        .sidebar-config-box .stRadio > div {
-            background-color: transparent !important;
-        }
-
-        input[type="radio"]:checked {
-            accent-color: #FF4B4B !important;
-        }
-
-        input[type="radio"] {
-            accent-color: #AAAAAA !important;
-        }
-    </style>
-""", unsafe_allow_html=True)
-
-# --- Sidebar UI ---
-with st.sidebar:
-    st.image("home.jpeg", use_container_width=True)
-
     st.markdown("""
-    <div class="sidebar-config-box">
-        <div class="config-title">
-            <span style="font-size: 1.5em;">⚙️</span>
-            <span>Configuration</span>
-        </div>
+    <style>
+    /* Make radio label text white */
+    .st-radio label {
+        color: yellow !important;
+    }
+
+    /* Set selected radio button circle color */
+    input[type="radio"]:checked {
+        accent-color: #FF4B4B !important;  /* bright red for selected */
+    }
+
+    /* Set unselected radio button circle color */
+    input[type="radio"] {
+        accent-color: #AAAAAA !important;  /* light gray for unselected */
+    }
+
+    /* Configuration header style */
+    .config-title {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 20px;
+        color: black;
+        font-weight: bold;
+        font-size: 1.1rem;
+    }
+    </style>
     """, unsafe_allow_html=True)
 
+    # Title with gear icon
+    st.markdown("""
+    <div class="config-title">
+        <span style="font-size: 1.5em;">⚙️</span>
+        <span>Configuration</span>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Radio selection
     source_type = st.radio(
         "Select Input Source",
         ['Browser Webcam (Photo)', 'Upload Video', 'Upload Image', 'RTSP IP Camera', 'OpenCV Webcam (Local Only)'],
         index=0,
         help="Choose the source for surveillance feed"
     )
-
+    
     st.markdown("---")
     st.markdown("### System Status")
     status_col1, status_col2 = st.columns(2)
     status_col1.metric("Model", "YOLOv8", "Active")
     status_col2.metric("FPS", "30", "Live")
-
+    
     st.markdown("---")
     st.markdown("### About")
     st.markdown("""
-        This AI surveillance system detects:
-        - PPE violations
-        - Safety breaches
-        - Unauthorized access
-        - Other anomalies
+    This AI surveillance system detects:
+    - PPE violations
+    - Safety breaches
+    - Unauthorized access
+    - Other anomalies
     """)
-
-    st.markdown("</div>", unsafe_allow_html=True)  # Close config div
-
 
 # Violation logger with enhanced functionality
 def log_violation(class_name, confidence):
