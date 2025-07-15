@@ -88,7 +88,7 @@ with st.sidebar:
     <style>
     /* Make radio label text white */
     .st-radio label {
-        color: white !important;
+        color: yellow !important;
     }
 
     /* Set selected radio button circle color */
@@ -107,7 +107,7 @@ with st.sidebar:
         align-items: center;
         gap: 8px;
         margin-top: 20px;
-        color: white;
+        color: black;
         font-weight: bold;
         font-size: 1.1rem;
     }
