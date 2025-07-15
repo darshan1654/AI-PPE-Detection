@@ -79,17 +79,43 @@ colored_header(
     color_name="blue-70",
 )
 
-# Sidebar with improved layout
+# Sidebar layout
 with st.sidebar:
     st.image("home.jpeg", use_container_width=True)
+    
+    # Custom CSS to style radio buttons in dark mode
     st.markdown("""
-    <div style="display: flex; align-items: center; gap: 8px; margin-top: 20px;">
+    <style>
+        /* Style the radio label text */
+        .stRadio > div {
+            color: #FFFFFF; /* White text */
+        }
+
+        /* Override radio dot color (selected and unselected) */
+        input[type="radio"] {
+            accent-color: #6C63FF; /* Violet shade or pick one matching your theme */
+        }
+
+        /* Sidebar title styling */
+        .config-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 20px;
+            color: #FFFFFF;
+        }
+    </style>
+    """, unsafe_allow_html=True)
+
+    # Title with gear icon
+    st.markdown("""
+    <div class="config-title">
         <span style="font-size: 1.5em;">⚙️</span>
         <span style="font-weight: bold; font-size: 1.1rem;">Configuration</span>
     </div>
     """, unsafe_allow_html=True)
-    
-    # Updated source options with browser webcam
+
+    # Source selection
     source_type = st.radio(
         "Select Input Source",
         ['Browser Webcam (Photo)', 'Upload Video', 'Upload Image', 'RTSP IP Camera', 'OpenCV Webcam (Local Only)'],
