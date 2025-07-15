@@ -31,46 +31,93 @@ st.set_page_config(
 )
 
 # Custom CSS for enhanced UI
+# Custom CSS for better visual clarity and usability
 st.markdown("""
     <style>
+        /* Global background and font settings */
         .main {
-            background-color: #f8f9fa;
+            background-color: #f2f6fc !important;
+            color: #1f1f1f;
+            font-family: 'Segoe UI', sans-serif;
         }
+
+        /* Streamlit widgets */
         .stButton>button {
-            border-radius: 8px;
-            padding: 8px 16px;
-            font-weight: 500;
+            background-color: #fa4b4b !important;
+            color: white !important;
+            border-radius: 6px;
+            padding: 10px 18px;
+            font-weight: 600;
         }
+
         .stSelectbox, .stTextInput, .stRadio>div {
-            background-color: white;
-            border-radius: 8px;
+            background-color: #ffffff !important;
+            color: #333333;
+            border-radius: 6px;
             padding: 8px;
         }
-        .stAlert {
-            border-radius: 8px;
-        }
+
         .stDataFrame {
-            border-radius: 8px;
+            border-radius: 6px;
         }
+
+        .stAlert {
+            background-color: #fff3cd !important;
+            border-left: 4px solid #ffc107 !important;
+            color: #856404;
+        }
+
+        /* Metric cards container */
         .css-1v3fvcr {
             padding: 1rem;
             border-radius: 8px;
-            background-color: white;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            background-color: #ffffff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
         }
+
         .css-1y4p8pa {
             padding-top: 2rem;
             padding-bottom: 2rem;
         }
+
+        /* Violation cards */
         .violation-card {
-            border-left: 4px solid #ff4b4b;
+            border-left: 5px solid #dc3545;
+            background-color: #fff5f5;
             padding: 12px;
-            margin-bottom: 8px;
-            background-color: #fff8f8;
-            border-radius: 4px;
+            margin-bottom: 12px;
+            border-radius: 6px;
+            color: #721c24;
+        }
+
+        /* Sidebar styling */
+        section[data-testid="stSidebar"] {
+            background-color: #e9f0f7 !important;
+        }
+
+        /* Headers */
+        h1, h2, h3, h4 {
+            color: #003366 !important;
+        }
+
+        /* Info and warning colors */
+        .stInfo {
+            background-color: #d1ecf1 !important;
+            color: #0c5460 !important;
+        }
+
+        .stWarning {
+            background-color: #fff3cd !important;
+            color: #856404 !important;
+        }
+
+        .stError {
+            background-color: #f8d7da !important;
+            color: #721c24 !important;
         }
     </style>
 """, unsafe_allow_html=True)
+
 
 # Main header with colored header
 colored_header(
@@ -83,9 +130,20 @@ colored_header(
 with st.sidebar:
     st.image("home.jpeg", use_container_width=True)
     st.markdown("""
-    <div style="display: flex; align-items: center; gap: 8px; margin-top: 20px;">
-        <span style="font-size: 1.5em;">⚙️</span>
-        <span style="font-weight: bold; font-size: 1.1rem;">Configuration</span>
+    <div style="margin-top: 20px;">
+        <div style="
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+            background-color: #003366; 
+            color: white; 
+            padding: 10px 16px; 
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.1rem;
+        ">
+            ⚙️ Configuration
+        </div>
     </div>
     """, unsafe_allow_html=True)
     
