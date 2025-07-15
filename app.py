@@ -30,54 +30,48 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# -------- FULLY UPDATED SIDEBAR + CSS FIX --------
+# Custom CSS for enhanced UI
 st.markdown("""
     <style>
-    /* GLOBAL STYLES */
-    .main {
-        background-color: #f8f9fa;
-    }
-    .stButton>button {
-        border-radius: 8px;
-        padding: 8px 16px;
-        font-weight: 500;
-    }
-    .violation-card {
-        border-left: 4px solid #ff4b4b;
-        padding: 12px;
-        margin-bottom: 8px;
-        background-color: #fff8f8;
-        border-radius: 4px;
-    }
-
-    /* SIDEBAR CONFIGURATION BOX FIX */
-    .sidebar-config-box {
-        background-color: #1e1e1e;
-        padding: 18px;
-        border-radius: 10px;
-        margin-top: 18px;
-        color: white;
-    }
-
-    .sidebar-config-box label, .sidebar-config-box p {
-        color: white !important;
-    }
-
-    /* Fix for Radio Buttons inside dark sidebar */
-    .sidebar-config-box [role="radiogroup"] {
-        background-color: transparent;
-    }
-
-    .sidebar-config-box input[type="radio"] {
-        accent-color: #ff4b4b !important;
-    }
-
-    .sidebar-config-box .st-emotion-cache-qbgoph p {
-        margin: 0px;
-        color: white !important;
-    }
+        .main {
+            background-color: #f8f9fa;
+        }
+        .stButton>button {
+            border-radius: 8px;
+            padding: 8px 16px;
+            font-weight: 500;
+        }
+        .stSelectbox, .stTextInput, .stRadio>div {
+            background-color: white;
+            border-radius: 8px;
+            padding: 8px;
+        }
+        .stAlert {
+            border-radius: 8px;
+        }
+        .stDataFrame {
+            border-radius: 8px;
+        }
+        .css-1v3fvcr {
+            padding: 1rem;
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .css-1y4p8pa {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+        .violation-card {
+            border-left: 4px solid #ff4b4b;
+            padding: 12px;
+            margin-bottom: 8px;
+            background-color: #fff8f8;
+            border-radius: 4px;
+        }
     </style>
 """, unsafe_allow_html=True)
+
 # Main header with colored header
 colored_header(
     label="👷 AI CCTV Surveillance System",
@@ -85,41 +79,39 @@ colored_header(
     color_name="blue-70",
 )
 
-# -------- SIDEBAR UI ----------
+# Sidebar with improved layout
 with st.sidebar:
     st.image("home.jpeg", use_container_width=True)
-
     st.markdown("""
-    <div class="sidebar-config-box">
-        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
-            <span style="font-size: 1.5em;">⚙️</span>
-            <span style="font-weight: bold; font-size: 1.1rem;">Configuration</span>
-        </div>
+    <div style="display: flex; align-items: center; gap: 8px; margin-top: 20px;">
+        <span style="font-size: 1.5em;">⚙️</span>
+        <span style="font-weight: bold; font-size: 1.1rem;">Configuration</span>
+    </div>
     """, unsafe_allow_html=True)
-
+    
+    # Updated source options with browser webcam
     source_type = st.radio(
         "Select Input Source",
         ['Browser Webcam (Photo)', 'Upload Video', 'Upload Image', 'RTSP IP Camera', 'OpenCV Webcam (Local Only)'],
         index=0,
         help="Choose the source for surveillance feed"
     )
-
-    st.markdown("<hr>", unsafe_allow_html=True)
+    
+    st.markdown("---")
     st.markdown("### System Status")
     status_col1, status_col2 = st.columns(2)
     status_col1.metric("Model", "YOLOv8", "Active")
     status_col2.metric("FPS", "30", "Live")
-
-    st.markdown("<hr>", unsafe_allow_html=True)
+    
+    st.markdown("---")
     st.markdown("### About")
     st.markdown("""
     This AI surveillance system detects:
-    - PPE violations  
-    - Safety breaches  
-    - Unauthorized access  
-    - Other anomalies  
+    - PPE violations
+    - Safety breaches
+    - Unauthorized access
+    - Other anomalies
     """)
-    st.markdown("</div>", unsafe_allow_html=True)
 
 # Violation logger with enhanced functionality
 def log_violation(class_name, confidence):
