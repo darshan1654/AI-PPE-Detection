@@ -30,121 +30,90 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS for enhanced UI
+# -------- FULLY UPDATED SIDEBAR + CSS FIX --------
 st.markdown("""
     <style>
-        .main {
-            background-color: #f8f9fa;
-        }
-        .stButton>button {
-            border-radius: 8px;
-            padding: 8px 16px;
-            font-weight: 500;
-        }
-        .stSelectbox, .stTextInput, .stRadio>div {
-            background-color: white;
-            border-radius: 8px;
-            padding: 8px;
-        }
-        .stAlert {
-            border-radius: 8px;
-        }
-        .stDataFrame {
-            border-radius: 8px;
-        }
-        .css-1v3fvcr {
-            padding: 1rem;
-            border-radius: 8px;
-            background-color: white;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        .css-1y4p8pa {
-            padding-top: 2rem;
-            padding-bottom: 2rem;
-        }
-        .violation-card {
-            border-left: 4px solid #ff4b4b;
-            padding: 12px;
-            margin-bottom: 8px;
-            background-color: #fff8f8;
-            border-radius: 4px;
-        }
+    /* GLOBAL STYLES */
+    .main {
+        background-color: #f8f9fa;
+    }
+    .stButton>button {
+        border-radius: 8px;
+        padding: 8px 16px;
+        font-weight: 500;
+    }
+    .violation-card {
+        border-left: 4px solid #ff4b4b;
+        padding: 12px;
+        margin-bottom: 8px;
+        background-color: #fff8f8;
+        border-radius: 4px;
+    }
+
+    /* SIDEBAR CONFIGURATION BOX FIX */
+    .sidebar-config-box {
+        background-color: #1e1e1e;
+        padding: 18px;
+        border-radius: 10px;
+        margin-top: 18px;
+        color: white;
+    }
+
+    .sidebar-config-box label, .sidebar-config-box p {
+        color: white !important;
+    }
+
+    /* Fix for Radio Buttons inside dark sidebar */
+    .sidebar-config-box [role="radiogroup"] {
+        background-color: transparent;
+    }
+
+    .sidebar-config-box input[type="radio"] {
+        accent-color: #ff4b4b !important;
+    }
+
+    .sidebar-config-box .st-emotion-cache-qbgoph p {
+        margin: 0px;
+        color: white !important;
+    }
     </style>
 """, unsafe_allow_html=True)
 
-# Main header with colored header
-colored_header(
-    label="👷 AI CCTV Surveillance System",
-    description="An AI-powered CCTV surveillance system for real-time detection of PPE compliance, including helmet and mask violations, using YOLO and computer vision.",
-    color_name="blue-70",
-)
-
-# Sidebar content
+# -------- SIDEBAR UI ----------
 with st.sidebar:
     st.image("home.jpeg", use_container_width=True)
 
-    # Add CSS styling
     st.markdown("""
-    <style>
-    /* Make radio label text white */
-    .st-radio label {
-        color: yellow !important;
-    }
-
-    /* Set selected radio button circle color */
-    input[type="radio"]:checked {
-        accent-color: #FF4B4B !important;  /* bright red for selected */
-    }
-
-    /* Set unselected radio button circle color */
-    input[type="radio"] {
-        accent-color: #AAAAAA !important;  /* light gray for unselected */
-    }
-
-    /* Configuration header style */
-    .config-title {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        margin-top: 20px;
-        color: black;
-        font-weight: bold;
-        font-size: 1.1rem;
-    }
-    </style>
+    <div class="sidebar-config-box">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
+            <span style="font-size: 1.5em;">⚙️</span>
+            <span style="font-weight: bold; font-size: 1.1rem;">Configuration</span>
+        </div>
     """, unsafe_allow_html=True)
 
-    # Title with gear icon
-    st.markdown("""
-    <div class="config-title">
-        <span style="font-size: 1.5em;">⚙️</span>
-        <span>Configuration</span>
-    </div>
-    """, unsafe_allow_html=True)
-
-    # Radio selection
     source_type = st.radio(
         "Select Input Source",
         ['Browser Webcam (Photo)', 'Upload Video', 'Upload Image', 'RTSP IP Camera', 'OpenCV Webcam (Local Only)'],
         index=0,
         help="Choose the source for surveillance feed"
     )
-    
-    st.markdown("---")
+
+    st.markdown("<hr>", unsafe_allow_html=True)
     st.markdown("### System Status")
     status_col1, status_col2 = st.columns(2)
     status_col1.metric("Model", "YOLOv8", "Active")
     status_col2.metric("FPS", "30", "Live")
-    
-    st.markdown("---")
+
+    st.markdown("<hr>", unsafe_allow_html=True)
     st.markdown("### About")
     st.markdown("""
     This AI surveillance system detects:
-    - PPE violations
-    - Safety breaches
-    - Unauthorized access
-    - Other anomalies
+    - PPE violations  
+    - Safety breaches  
+    - Unauthorized access  
+    - Other anomalies  
     """)
+    st.markdown("</div>", unsafe_allow_html=True)
 
 # Violation logger with enhanced functionality
 def log_violation(class_name, confidence):
