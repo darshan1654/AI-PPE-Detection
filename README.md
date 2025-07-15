@@ -94,10 +94,11 @@ streamlit run app.py
 
 ```
 ├── app.py               # Streamlit app
-├── model/               # YOLOv8 model files
-├── utils/               # Helper functions
-├── static/              # Images and videos
+├── best.pt              # YOLOv8 model files
+├── yolov8n.pt           # YOLOv8 model files
+├── violation_logs.csv   # Detection logs CSV file
 ├── requirements.txt     # Dependencies
+├── packages.txt         # packages
 └── runtime.txt          # For deployment (e.g., Heroku)
 ```
 
@@ -137,7 +138,7 @@ streamlit run app.py
 
 ## 📜 License
 
-For **academic and research use** only.
+For **Academic and Research use** only.
 
 ---
 
