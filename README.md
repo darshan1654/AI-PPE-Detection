@@ -1,5 +1,3 @@
-<img width="709" height="186" alt="image" src="https://github.com/user-attachments/assets/9afae834-e0bd-4a0f-9b6a-919b491df72d" />
-
 
 # 🛡️📹 AI-Powered Industrial Safety Surveillance System
 
@@ -161,3 +159,5 @@ For **academic and research use** only.
 📧 [mpdarshanpanchal001031@gmail.com](mailto:mpdarshanpanchal001031@gmail.com)
 📧 [ravaljaymin2908@gmail.com](mailto:ravaljaymin2908@gmail.com)
 ---
+
+<img width="709" height="186" alt="image" src="https://github.com/user-attachments/assets/9afae834-e0bd-4a0f-9b6a-919b491df72d" />
