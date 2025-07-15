@@ -79,31 +79,38 @@ colored_header(
     color_name="blue-70",
 )
 
-# Sidebar layout
+# Sidebar content
 with st.sidebar:
     st.image("home.jpeg", use_container_width=True)
-    
-    # Custom CSS to style radio buttons in dark mode
+
+    # Add CSS styling
     st.markdown("""
     <style>
-        /* Style the radio label text */
-        .stRadio > div {
-            color: #FFFFFF; /* White text */
-        }
+    /* Make radio label text white */
+    .st-radio label {
+        color: white !important;
+    }
 
-        /* Override radio dot color (selected and unselected) */
-        input[type="radio"] {
-            accent-color: #6C63FF; /* Violet shade or pick one matching your theme */
-        }
+    /* Set selected radio button circle color */
+    input[type="radio"]:checked {
+        accent-color: #FF4B4B !important;  /* bright red for selected */
+    }
 
-        /* Sidebar title styling */
-        .config-title {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 20px;
-            color: #FFFFFF;
-        }
+    /* Set unselected radio button circle color */
+    input[type="radio"] {
+        accent-color: #AAAAAA !important;  /* light gray for unselected */
+    }
+
+    /* Configuration header style */
+    .config-title {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 20px;
+        color: white;
+        font-weight: bold;
+        font-size: 1.1rem;
+    }
     </style>
     """, unsafe_allow_html=True)
 
@@ -111,11 +118,11 @@ with st.sidebar:
     st.markdown("""
     <div class="config-title">
         <span style="font-size: 1.5em;">⚙️</span>
-        <span style="font-weight: bold; font-size: 1.1rem;">Configuration</span>
+        <span>Configuration</span>
     </div>
     """, unsafe_allow_html=True)
 
-    # Source selection
+    # Radio selection
     source_type = st.radio(
         "Select Input Source",
         ['Browser Webcam (Photo)', 'Upload Video', 'Upload Image', 'RTSP IP Camera', 'OpenCV Webcam (Local Only)'],
