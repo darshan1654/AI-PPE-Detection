@@ -2,7 +2,7 @@ streamlit
 opencv-python-headless==4.7.0.72
 ultralytics
 pandas
-numpy
+numpy<2.0.0
 Pillow
 streamlit-extras
 protobuf
@@ -11,3 +11,4 @@ torchvision
 matplotlib
 scikit-learn
 requests
+
