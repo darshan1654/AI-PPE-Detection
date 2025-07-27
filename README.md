@@ -10,9 +10,9 @@
 
 ## 📄 Project Overview
 
-This project integrates **AI-powered Personal Protective Equipment (PPE) detection** and **CCTV-based anomaly surveillance** into a single real-time system. It is designed to improve **workplace safety**, **regulatory compliance**, and **operational efficiency** in industrial environments.
+This project integrates **AI-powered Personal Protective Equipment (PPE) detection** and **CCTV-based Anomaly Surveillance** into a single real-time system. It is designed to improve **Workplace Safety**, **Regulatory Compliance**, and **Operational Efficiency** in industrial environments.
 
-Using advanced **deep learning models** and **computer vision**, the system ensures that workers adhere to safety protocols and that unusual or unsafe activities are promptly flagged.
+Using advanced **Deep Learning models** and **Computer Vision**, the system ensures that workers adhere to safety protocols and that unusual or unsafe activities are promptly flagged.
 
 ---
 
@@ -25,7 +25,7 @@ Using advanced **deep learning models** and **computer vision**, the system ensu
   - 👷 Safety Vests  
   - 🧤 Gloves  
 - Supports live feed from **Webcam/IP Camera**
-- Upload and analyze **video/image files**
+- Upload and analyze **Video/Image files**
 - Detection logs with timestamps and confidence scores
 
 ### 📹 CCTV Anomaly Detection Module
@@ -132,9 +132,9 @@ streamlit run app.py
 
 ## 🏆 Achievements
 
-* ✅ Used in **real industrial setup** at Jyoti CNC
-* 🎓 Presented at **college-level expo**
-* 📡 Successfully tested with **live camera feeds**
+* ✅ Used in **Real Industrial setup** at Jyoti CNC
+* 🎓 Presented at **College-level expo**
+* 📡 Successfully tested with **Live Camera feeds**
 
 ---
 
